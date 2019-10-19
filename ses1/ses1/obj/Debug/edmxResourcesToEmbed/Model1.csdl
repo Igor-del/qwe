@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="myModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="KOMNATA_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KORPUS_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MESTO_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_KORPUS" Type="Int32" Nullable="false" />
+    <Property Name="ID_KOMNATA" Type="Int32" Nullable="false" />
+    <Property Name="ID_MESTO" Type="Int32" />
+    <Property Name="ID_PERSONA" Type="Int32" />
+    <NavigationProperty Name="STATUS_OBSH" Relationship="Self.FK_OBSH_STATUS_OBSH" FromRole="OBSH" ToRole="STATUS_OBSH" />
+  </EntityType>
+  <EntityType Name="STATUS_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STATUS_SOTRUDNIK" Type="Boolean" />
+    <Property Name="F" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="I" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="O" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DZ" Type="DateTime" Precision="0" />
+    <Property Name="DV" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="OBSH" Relationship="Self.FK_OBSH_STATUS_OBSH" FromRole="STATUS_OBSH" ToRole="OBSH" />
+  </EntityType>
+  <Association Name="FK_OBSH_STATUS_OBSH">
+    <End Role="STATUS_OBSH" Type="Self.STATUS_OBSH" Multiplicity="0..1" />
+    <End Role="OBSH" Type="Self.OBSH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS_OBSH">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OBSH">
+        <PropertyRef Name="ID_PERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="myEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="KOMNATA_OBSH" EntityType="Self.KOMNATA_OBSH" />
+    <EntitySet Name="KORPUS_OBSH" EntityType="Self.KORPUS_OBSH" />
+    <EntitySet Name="MESTO_OBSH" EntityType="Self.MESTO_OBSH" />
+    <EntitySet Name="OBSH" EntityType="Self.OBSH" />
+    <EntitySet Name="STATUS_OBSH" EntityType="Self.STATUS_OBSH" />
+    <AssociationSet Name="FK_OBSH_STATUS_OBSH" Association="Self.FK_OBSH_STATUS_OBSH">
+      <End Role="STATUS_OBSH" EntitySet="STATUS_OBSH" />
+      <End Role="OBSH" EntitySet="OBSH" />
+    </AssociationSet>
+    <EntitySet Name="Zayvki" EntityType="myModel.Zayvki" />
+  </EntityContainer>
+  <EntityType Name="Zayvki">
+    <Key>
+      <PropertyRef Name="id_zayvki" />
+    </Key>
+    <Property Name="id_zayvki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="I" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="O" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Sait" Type="Boolean" />
+  </EntityType>
+</Schema>

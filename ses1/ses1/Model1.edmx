@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище myModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KOMNATA_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KORPUS_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MESTO_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_KORPUS" Type="int" Nullable="false" />
+          <Property Name="ID_KOMNATA" Type="int" Nullable="false" />
+          <Property Name="ID_MESTO" Type="int" />
+          <Property Name="ID_PERSONA" Type="int" />
+        </EntityType>
+        <EntityType Name="STATUS_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STATUS_SOTRUDNIK" Type="bit" />
+          <Property Name="F" Type="nvarchar" MaxLength="50" />
+          <Property Name="I" Type="nvarchar" MaxLength="50" />
+          <Property Name="O" Type="nvarchar" MaxLength="50" />
+          <Property Name="DZ" Type="date" />
+          <Property Name="DV" Type="date" />
+        </EntityType>
+        <EntityType Name="Zayvki">
+          <Key>
+            <PropertyRef Name="id_zayvki" />
+          </Key>
+          <Property Name="id_zayvki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F" Type="nvarchar" MaxLength="50" />
+          <Property Name="I" Type="nvarchar" MaxLength="50" />
+          <Property Name="O" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Sait" Type="bit" />
+        </EntityType>
+        <Association Name="FK_OBSH_STATUS_OBSH">
+          <End Role="STATUS_OBSH" Type="Self.STATUS_OBSH" Multiplicity="0..1" />
+          <End Role="OBSH" Type="Self.OBSH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS_OBSH">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OBSH">
+              <PropertyRef Name="ID_PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище myModelContainer">
+          <EntitySet Name="KOMNATA_OBSH" EntityType="Self.KOMNATA_OBSH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KORPUS_OBSH" EntityType="Self.KORPUS_OBSH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MESTO_OBSH" EntityType="Self.MESTO_OBSH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBSH" EntityType="Self.OBSH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS_OBSH" EntityType="Self.STATUS_OBSH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zayvki" EntityType="Self.Zayvki" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OBSH_STATUS_OBSH" Association="Self.FK_OBSH_STATUS_OBSH">
+            <End Role="STATUS_OBSH" EntitySet="STATUS_OBSH" />
+            <End Role="OBSH" EntitySet="OBSH" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="myModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KOMNATA_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KORPUS_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MESTO_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_KORPUS" Type="Int32" Nullable="false" />
+          <Property Name="ID_KOMNATA" Type="Int32" Nullable="false" />
+          <Property Name="ID_MESTO" Type="Int32" />
+          <Property Name="ID_PERSONA" Type="Int32" />
+          <NavigationProperty Name="STATUS_OBSH" Relationship="Self.FK_OBSH_STATUS_OBSH" FromRole="OBSH" ToRole="STATUS_OBSH" />
+        </EntityType>
+        <EntityType Name="STATUS_OBSH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STATUS_SOTRUDNIK" Type="Boolean" />
+          <Property Name="F" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="I" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="O" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DZ" Type="DateTime" Precision="0" />
+          <Property Name="DV" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="OBSH" Relationship="Self.FK_OBSH_STATUS_OBSH" FromRole="STATUS_OBSH" ToRole="OBSH" />
+        </EntityType>
+        <Association Name="FK_OBSH_STATUS_OBSH">
+          <End Role="STATUS_OBSH" Type="Self.STATUS_OBSH" Multiplicity="0..1" />
+          <End Role="OBSH" Type="Self.OBSH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS_OBSH">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OBSH">
+              <PropertyRef Name="ID_PERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="myEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KOMNATA_OBSH" EntityType="Self.KOMNATA_OBSH" />
+          <EntitySet Name="KORPUS_OBSH" EntityType="Self.KORPUS_OBSH" />
+          <EntitySet Name="MESTO_OBSH" EntityType="Self.MESTO_OBSH" />
+          <EntitySet Name="OBSH" EntityType="Self.OBSH" />
+          <EntitySet Name="STATUS_OBSH" EntityType="Self.STATUS_OBSH" />
+          <AssociationSet Name="FK_OBSH_STATUS_OBSH" Association="Self.FK_OBSH_STATUS_OBSH">
+            <End Role="STATUS_OBSH" EntitySet="STATUS_OBSH" />
+            <End Role="OBSH" EntitySet="OBSH" />
+          </AssociationSet>
+          <EntitySet Name="Zayvki" EntityType="myModel.Zayvki" />
+        </EntityContainer>
+        <EntityType Name="Zayvki">
+          <Key>
+            <PropertyRef Name="id_zayvki" />
+          </Key>
+          <Property Name="id_zayvki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="I" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="O" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Sait" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище myModelContainer" CdmEntityContainer="myEntities">
+          <EntitySetMapping Name="KOMNATA_OBSH">
+            <EntityTypeMapping TypeName="myModel.KOMNATA_OBSH">
+              <MappingFragment StoreEntitySet="KOMNATA_OBSH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KORPUS_OBSH">
+            <EntityTypeMapping TypeName="myModel.KORPUS_OBSH">
+              <MappingFragment StoreEntitySet="KORPUS_OBSH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESTO_OBSH">
+            <EntityTypeMapping TypeName="myModel.MESTO_OBSH">
+              <MappingFragment StoreEntitySet="MESTO_OBSH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBSH">
+            <EntityTypeMapping TypeName="myModel.OBSH">
+              <MappingFragment StoreEntitySet="OBSH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_KORPUS" ColumnName="ID_KORPUS" />
+                <ScalarProperty Name="ID_KOMNATA" ColumnName="ID_KOMNATA" />
+                <ScalarProperty Name="ID_MESTO" ColumnName="ID_MESTO" />
+                <ScalarProperty Name="ID_PERSONA" ColumnName="ID_PERSONA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS_OBSH">
+            <EntityTypeMapping TypeName="myModel.STATUS_OBSH">
+              <MappingFragment StoreEntitySet="STATUS_OBSH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STATUS_SOTRUDNIK" ColumnName="STATUS_SOTRUDNIK" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="I" ColumnName="I" />
+                <ScalarProperty Name="O" ColumnName="O" />
+                <ScalarProperty Name="DZ" ColumnName="DZ" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zayvki">
+            <EntityTypeMapping TypeName="myModel.Zayvki">
+              <MappingFragment StoreEntitySet="Zayvki">
+                <ScalarProperty Name="Sait" ColumnName="Sait" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="O" ColumnName="O" />
+                <ScalarProperty Name="I" ColumnName="I" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="id_zayvki" ColumnName="id_zayvki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

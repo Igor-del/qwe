@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище myModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="KOMNATA_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KORPUS_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MESTO_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_KORPUS" Type="int" Nullable="false" />
+    <Property Name="ID_KOMNATA" Type="int" Nullable="false" />
+    <Property Name="ID_MESTO" Type="int" />
+    <Property Name="ID_PERSONA" Type="int" />
+  </EntityType>
+  <EntityType Name="STATUS_OBSH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATUS_SOTRUDNIK" Type="bit" />
+    <Property Name="F" Type="nvarchar" MaxLength="50" />
+    <Property Name="I" Type="nvarchar" MaxLength="50" />
+    <Property Name="O" Type="nvarchar" MaxLength="50" />
+    <Property Name="DZ" Type="date" />
+    <Property Name="DV" Type="date" />
+  </EntityType>
+  <EntityType Name="Zayvki">
+    <Key>
+      <PropertyRef Name="id_zayvki" />
+    </Key>
+    <Property Name="id_zayvki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F" Type="nvarchar" MaxLength="50" />
+    <Property Name="I" Type="nvarchar" MaxLength="50" />
+    <Property Name="O" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Sait" Type="bit" />
+  </EntityType>
+  <Association Name="FK_OBSH_STATUS_OBSH">
+    <End Role="STATUS_OBSH" Type="Self.STATUS_OBSH" Multiplicity="0..1" />
+    <End Role="OBSH" Type="Self.OBSH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STATUS_OBSH">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OBSH">
+        <PropertyRef Name="ID_PERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище myModelContainer">
+    <EntitySet Name="KOMNATA_OBSH" EntityType="Self.KOMNATA_OBSH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KORPUS_OBSH" EntityType="Self.KORPUS_OBSH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MESTO_OBSH" EntityType="Self.MESTO_OBSH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OBSH" EntityType="Self.OBSH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STATUS_OBSH" EntityType="Self.STATUS_OBSH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zayvki" EntityType="Self.Zayvki" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_OBSH_STATUS_OBSH" Association="Self.FK_OBSH_STATUS_OBSH">
+      <End Role="STATUS_OBSH" EntitySet="STATUS_OBSH" />
+      <End Role="OBSH" EntitySet="OBSH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,37 @@
+D:\IS1-41\ses1\ses1\bin\Debug\ses1.exe.config
+D:\IS1-41\ses1\ses1\bin\Debug\ses1.exe
+D:\IS1-41\ses1\ses1\bin\Debug\ses1.pdb
+D:\IS1-41\ses1\ses1\bin\Debug\EntityFramework.dll
+D:\IS1-41\ses1\ses1\bin\Debug\EntityFramework.SqlServer.dll
+D:\IS1-41\ses1\ses1\bin\Debug\EntityFramework.xml
+D:\IS1-41\ses1\ses1\bin\Debug\EntityFramework.SqlServer.xml
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.csprojAssemblyReference.cache
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.Form1.resources
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.Form2.resources
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.Properties.Resources.resources
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.csproj.GenerateResource.cache
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.csproj.CoreCompileInputs.cache
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.csproj.CopyComplete
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.exe
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.pdb
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.Form3.resources
+D:\IS1-41\ses1\ses1\obj\Debug\ses1.Form4.resources
+F:\Новая папка\ses1\ses1\bin\Debug\ses1.exe.config
+F:\Новая папка\ses1\ses1\bin\Debug\ses1.exe
+F:\Новая папка\ses1\ses1\bin\Debug\ses1.pdb
+F:\Новая папка\ses1\ses1\bin\Debug\EntityFramework.dll
+F:\Новая папка\ses1\ses1\bin\Debug\EntityFramework.SqlServer.dll
+F:\Новая папка\ses1\ses1\bin\Debug\EntityFramework.xml
+F:\Новая папка\ses1\ses1\bin\Debug\EntityFramework.SqlServer.xml
+F:\Новая папка\ses1\ses1\bin\Debug\ru\EntityFramework.resources.dll
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.csprojAssemblyReference.cache
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.Form1.resources
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.Form2.resources
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.Form3.resources
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.Form4.resources
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.Form5.resources
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.Properties.Resources.resources
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.csproj.GenerateResource.cache
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.csproj.CopyComplete
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.exe
+F:\Новая папка\ses1\ses1\obj\Debug\ses1.pdb
