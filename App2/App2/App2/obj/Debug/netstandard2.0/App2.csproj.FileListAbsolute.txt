@@ -1,0 +1,13 @@
+D:\122\App2\App2\App2\bin\Debug\netstandard2.0\App2.deps.json
+D:\122\App2\App2\App2\bin\Debug\netstandard2.0\App2.dll
+D:\122\App2\App2\App2\bin\Debug\netstandard2.0\ref\App2.dll
+D:\122\App2\App2\App2\bin\Debug\netstandard2.0\App2.pdb
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\App2.csprojAssemblyReference.cache
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\App2.AssemblyInfoInputs.cache
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\App2.AssemblyInfo.cs
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\XamlC.stamp
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\App2.dll
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\ref\App2.dll
+D:\122\App2\App2\App2\obj\Debug\netstandard2.0\App2.pdb
